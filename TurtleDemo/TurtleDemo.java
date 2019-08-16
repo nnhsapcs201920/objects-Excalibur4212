@@ -12,8 +12,8 @@ public class TurtleDemo
             Color x = new Color(186, 218, 85);
             crush.setPenColor(x);
             crush.setPenDown(true);
-            crush.forward(10);
-            crush.turn(36);
+            crush.forward(20);
+            crush.turn(36+90);
         }
     }
 }
