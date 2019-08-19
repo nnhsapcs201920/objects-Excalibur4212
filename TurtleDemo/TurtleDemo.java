@@ -6,14 +6,13 @@ public class TurtleDemo
     {
         World ocean = new World();
         Turtle crush = new Turtle(ocean);
-        crush.turn(180);
         crush.turn(18);
         for(int i = 0; i < 5; i++){
             Color x = new Color(186, 218, 85);
             crush.setPenColor(x);
             crush.setPenDown(true);
-            crush.forward(20);
-            crush.turn(36+90);
+            crush.forward(50);
+            crush.turn(36+180);
         }
     }
 }
