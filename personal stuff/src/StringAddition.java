@@ -12,6 +12,7 @@ public class StringAddition {
         for(int i = in1.length()-1; i >=0; i--) intarray1.add(Integer.parseInt(in1.charAt(i) + ""));
         //populate intarray2
         for(int i = in2.length()-1; i >=0; i--) intarray2.add(Integer.parseInt(in2.charAt(i) + ""));
+
         return null;
     }
 }
