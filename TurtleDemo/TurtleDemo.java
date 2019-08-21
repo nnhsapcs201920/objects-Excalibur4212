@@ -6,7 +6,7 @@ public class TurtleDemo
     {
         World ocean = new World();
         Turtle crush = new Turtle(ocean);
-        crush.turn(18);
+        crush.turn(18); //makes a star
         for(int i = 0; i < 5; i++){
             Color x = new Color(186, 218, 85);
             crush.setPenColor(x);
