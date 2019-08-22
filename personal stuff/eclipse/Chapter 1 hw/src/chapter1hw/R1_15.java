@@ -46,9 +46,6 @@ public class R1_15 {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public R1_15() {
 		initialize();
 		
