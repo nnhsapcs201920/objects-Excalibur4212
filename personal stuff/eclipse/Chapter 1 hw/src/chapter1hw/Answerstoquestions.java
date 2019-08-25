@@ -28,4 +28,42 @@ public class Answerstoquestions {
 	 * }
 	 * print next guess
 	 */
+	/*
+	 * p1.8
+	 * 
+	 * while true:
+	 * 	if robot.view == exit, move forward, break
+	 * 	if robot.view == nothing, move forward
+	 * 	if robot.view == wall:
+	 * 		turn right
+	 * 		if robot.view == wall: 
+	 * 			turn right twice
+	 * 			if robot.view == wall, turn left, move forward
+	 * 			else move forward
+	 */
+	/*
+	 * p1.11
+	 * 
+	 * String[][] x = matrix.getcolors
+	 * int redxsum =0;
+	 * int redysum =0;
+	 * int redcount = 0;
+	 * int blackxsum =0;
+	 * int blackysum =0;
+	 * int blackcount = 0;
+	 * int redxcoord;
+	 * int redycoord;
+	 * int blackcoord;
+	 * int blackycoord;
+	 * for i=0 i<rows i++:
+	 * 	for j=0 j<columns j++:
+	 * 		if x[i][j] is red, increment redxsum by i, increment redysum by j, increment redcount by 1
+	 * 		if x[i][j] is black, increment blackxsum by i, increment blackysum by j, increment blackcount by 1
+	 * redxcoord = round redxsum/redcount
+	 * redycoord = round redysum/redcount
+	 * blackxcoord = round blackxsum/blackcount
+	 * blackycoord = round blackysum/blackcount
+	 * if redxcoord == blackxcoord and redycoord = blackycoord, return yes
+	 * else return no
+	 */
 }
