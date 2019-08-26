@@ -1,7 +1,7 @@
 package chapter1hw;
 
 public class utilities {
-	//these take in a two dimensional array and prints it out
+	//these take in a two
 	public static void twoDArrayPrint(int[][] x) {
 		System.out.println("");
 		for(int i = 0; i <x[0].length; i++) {

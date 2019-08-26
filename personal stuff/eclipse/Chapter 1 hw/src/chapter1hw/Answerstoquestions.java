@@ -64,6 +64,6 @@ public class Answerstoquestions {
 	 * blackxcoord = round blackxsum/blackcount
 	 * blackycoord = round blackysum/blackcount
 	 * if redxcoord == blackxcoord and redycoord = blackycoord, return yes
-	 * else return no
+	 * else return no	
 	 */
 }
