@@ -63,5 +63,22 @@ public class TurtleDemo
         double salesTaxRate = 0.075;
         //here is a char
         char letter = 'c';
+        /*
+         * When invoking methods, we use the dot operator, aka the period to invoke a method on an object
+         * Some methods take no arguments, but we still have parentheses
+         * Some methods take one or more arguments, like forward
+         * mutator methods modify the state of the object. penDown, forward, etc are mutators.
+         * 
+         */
+        crush.penDown();
+        crush.forward(25);
+        crush.setPenColor(Color.RED);
+        crush.forward(25);
+        /*
+         * Accessor methods return the value of a property of the object. The state of the object does not change. getPenWidth is an accessor method
+         * 
+         */
+        int penwidth = crush.getPenWidth();
+        
     }
-}
+} 
