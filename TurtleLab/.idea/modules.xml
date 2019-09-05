@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TurtleLab.iml" filepath="$PROJECT_DIR$/.idea/TurtleLab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TurtleLab.iml" filepath="$PROJECT_DIR$/TurtleLab.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="mediaComp">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/mediaComp.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/mediaComp.jar!/doc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/mediaComp.jar!/" />
+    </SOURCES>
+  </library>
+</component>
