@@ -2,16 +2,16 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         //declare variables
-        String documentation = "-help- \nUsage: type in the phrase excluding the colon  \n  exit: exits the program \n  scale: scales the resolution of the canvas \n   x: moves the fractal along x axis (real units so small numbers)\n    y: moves the fractal along y axis (imaginary units so small numbers) \n zoom: zooms the fractal in or out \n   maxIterations: changes the amount of maximum iterations before bound status is decided. Higher is more accurate, but is slower, and may not look as good, and it is simply up to taste to choose a value."; //what the help command prints
-        int intIn = 0; //handles integer inputs
-        double doubleIn = 0; //handles double inputs
-        Scanner kbReader = new Scanner(System.in); //keyboard scanner
-        String in = ""; //handles raw inputs
-        String in1 = ""; //handles raw inputs nested within other sections involving raw inputs as to not accidentally overwrite something.
-        boolean defaultOrNot = true; //decides whether to use default constructors or not
-        Mandelbrot x = new Mandelbrot(); //creates new object of class Mandelbrot
-        PaintingPrinter y = new PaintingPrinter();  //creates new object of class PaintingPrinter
-        MovementUtils z = new MovementUtils(x, y); //creates new object of type MovementUtils
+        String documentation = "-help- \nUsage: type in the phrase excluding the colon  \n  exit: exits the program \n  scale: scales the resolution of the canvas \n   x: moves the fractal along x axis (real units so small numbers)\n    y: moves the fractal along y axis (imaginary units so small numbers) \n zoom: zooms the fractal in or out ";
+        int intIn = 0;
+        double doubleIn = 0;
+        Scanner kbReader = new Scanner(System.in);
+        String in = "";
+        String in1 = "";
+        boolean defaultOrNot = true;
+        Mandelbrot x = null;
+        PaintingPrinter y = null;
+        MovementUtils z = null;
         System.out.println("Welcome to Derek's mandelbrot set application. We suggest that you set the screen up to show multiple windows if you wish to make changes to the plot. Press enter to start");
         kbReader.nextLine(); //allow for user to wait to start
         //default or not
@@ -24,8 +24,13 @@ public class main {
                 break;
             } else System.out.println("Invalid input registered. Please try again.");
         }
-        if (defaultOrNot); //objects already declared as default
-        else{
+        //declare objects
+        if (defaultOrNot){
+            x = new Mandelbrot();
+            y = new PaintingPrinter();
+            x.mandelPrint(x, y);
+            z = new MovementUtils(x, y);
+        } else{
             //ask for user input on constructors
             while(true){ //factor of resolution increase
                 System.out.println("By what factor would you like to change the default resolution (600x400) by (insert positive double)");
@@ -87,7 +92,7 @@ public class main {
                 z.x(doubleIn);
             }
             else if (in.equalsIgnoreCase("y")) {
-                //asks for required bits of y command
+                //asks for required bits of x command
                 while (true) {
                     System.out.println("Type in the number of REAL units (not pixels) that you wish to translate the y-axis by (any double)");
                     in1 = kbReader.nextLine();
@@ -101,7 +106,7 @@ public class main {
                 z.y(doubleIn);
             }
             else if(in.equalsIgnoreCase("zoom")){
-                //asks for required bits of zoom command.
+                //asks for required bits of scale command.
                 while(true){
                     System.out.println("Please input the factor by which you would like to zoom in or out. (positive double)");
                     in1 = kbReader.nextLine();
@@ -114,22 +119,8 @@ public class main {
                 }
                 z.zoom(doubleIn);
             }
-            else if(in.equalsIgnoreCase("maxiterations")){
-                //asks for required bits of maxiterations command.
-                while(true){
-                    System.out.println("Input the new number of maximum iterations (positive integer)");
-                    in1 = kbReader.nextLine();
-                    try{
-                        intIn = Integer.parseInt(in1);
-                        if(intIn>0) break;
-                    }catch(Exception e){}
-                    System.out.println("Invalid input detected, please try again.");
-                }
-                x.setMaxIter(intIn);
-            }
             else System.out.println(in+" is not a recognizable command. Press help for commands or try again.");
         }
         kbReader.close();
-        System.exit(0);
     }
 }
