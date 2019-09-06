@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         //declare variables
-        String documentation = "-help- \nUsage: type in the phrase excluding the colon  \n  exit: exits the program \n  scale: scales the resolution of the canvas \n   x: moves the fractal along x axis (real units so small numbers)\n    y: moves the fractal along y axis (imaginary units so small numbers) \n zoom: zooms the fractal in or out ";
+        String documentation = "-help- \nUsage: type in the phrase excluding the colon  \n   exit: exits the program \n   scale: scales the resolution of the canvas \n   x: moves the fractal along x axis (real units so small numbers)\n   y: moves the fractal along y axis (imaginary units so small numbers) \n   zoom: zooms the fractal in or out ";
         int intIn = 0;
         double doubleIn = 0;
         Scanner kbReader = new Scanner(System.in);

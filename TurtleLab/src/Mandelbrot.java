@@ -4,27 +4,23 @@ import org.apache.commons.math3.complex.Complex;
 
 import java.awt.*;
 
-/*
-author Excalibur4212
-date 9/6/2019
-usage: a bunch of utilities to print out mandelbrot sets
+/**
+ * @author derek
+ * @version 1.0
+ * @date 9/6/2019
+ * Generates a mandelbrot set and puts it into an array of colors for PaintingPrinter to print out
  */
 public class Mandelbrot {
     //initialize values
-    private int centerX = 300, centerY = 200, dimensionX = 600, dimensionY = 400, maxIter = 300;
+    private int dimensionX = 600, dimensionY = 400, maxIter = 300;
     private double realStart = -2, realEnd = 1, imStart = -1, imEnd = 1;
     //used to update the center of the plot
-    private void setC(){
-        centerX = (int)Math.floor((double)dimensionX * 2.0/3.0);
-        centerY = (int)Math.floor((double)dimensionY / 2.0);
-    }
     //constructors
     public Mandelbrot(){
     }
     public Mandelbrot(double factor, int maxI){
         dimensionX = (int)(Math.round((double)dimensionX * factor));
         dimensionY = (int)(Math.round((double)dimensionY * factor));
-        setC();
         maxIter = maxI;
     }
     //methods
@@ -55,17 +51,23 @@ public class Mandelbrot {
     public void resolutionChange(double factor){
         dimensionX = (int)Math.round((double)dimensionX * factor);
         dimensionY = (int)Math.round((double)dimensionY * factor);
-        setC();
     }
-    /*
-    generates complex number from position on plane
-    */
+
+    /**
+     * generates a complex number based on cartesian coordinates from an x and y coordinates based on java's system.
+     * @param x x coordinate (java system)
+     * @param y y coordinate (java system)
+     * @return
+     */
     public Complex complexMaker(int x, int y){
         return new Complex((realStart + (((double)x / (double)dimensionX) * (realEnd - realStart))), (imStart + (((double)y / (double)dimensionY) * (imEnd - imStart))));
     }
-    /*function that determines whether number is within set or not (this is the only section that isn't my code originally)
-    source for algorithm: https://www.codingame.com/playgrounds/2358/how-to-plot-the-mandelbrot-set/mandelbrot-set
-    source for my understanding of how the set is generated:https://www.youtube.com/watch?v=NGMRB4O922I&feature=youtu.be
+    /**
+     * Checks if a complex number is part of the mandelbrot set.
+     * @param c complex number to check
+     * @return the amount of iterations until escape, or if it is bound
+     * source for algorithm: https://www.codingame.com/playgrounds/2358/how-to-plot-the-mandelbrot-set/mandelbrot-set
+     * source for my understanding of how the set is generated:https://www.youtube.com/watch?v=NGMRB4O922I&feature=youtu.be
      */
     private int mandelFunc(Complex c){
         //complex c is a complex number that is constantly added to the square of 0
@@ -77,8 +79,11 @@ public class Mandelbrot {
         }
         return i; //return result
     }
-    /*
-    creates a color based max iterations
+
+    /**
+     * generates a color based on the amount of iterations required to escape boundary
+     * @param grade the amount of iterations
+     * @return a color based on grade.
      */
     private Color colorGen(int grade){
         if (grade == maxIter) return Color.BLACK;
@@ -88,8 +93,10 @@ public class Mandelbrot {
             return out;
         }
     }
-    /*
-    Generates an array of colors and positions for the turtles to paint
+
+    /**
+     * generates a color matrix based on the parameters of the mandelbrot set from constructors
+     * @return a matrix that represents every pixel's color
      */
     private Color[][] mandelGen(){
         //initialize output array
@@ -102,8 +109,11 @@ public class Mandelbrot {
         }
         return out;
     }
-    /*
-    Sends result from mandelGen to PaintingPrinter
+
+    /**
+     * refreshes the display
+     * @param in1 the Mandelbrot object to use
+     * @param in2 the PaintingPrinter object to use
      */
     public static void mandelPrint(Mandelbrot in1, PaintingPrinter in2){
         in2.paint(in1.mandelGen());

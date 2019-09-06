@@ -3,6 +3,8 @@ import java.awt.Color;
 /**
  * @author derek zhang
  * @version 1.0
+ * @date 9/6/19
+ * accepts a color array input and paints a graph using turtles
  */
 public class PaintingPrinter{
     Turtle hsb = null;
