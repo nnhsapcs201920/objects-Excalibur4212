@@ -64,12 +64,12 @@ public class PaintingPrinter{
      * @param y y-coordinate of desired point
      */
     public void goTo(Turtle obj, int x, int y){
-        int x1 = obj.getXPos();
+        int x1 = obj.getXPos(); //get positions
         int y1 = obj.getYPos();
-        obj.penUp();
-        obj.setHeading(0);
-        int dx = x-x1;
-        int dy = y1-y;
+        obj.penUp(); //just in case
+        obj.setHeading(0); //reset heading
+        int dx = x - x1; //change in x required
+        int dy = y1 - y; //change in y required
         //translate along x
         obj.turnRight();
         if (dx>0) obj.forward(dx);
