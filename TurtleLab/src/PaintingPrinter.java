@@ -64,6 +64,8 @@ public class PaintingPrinter{
      * @param in array of all pixels and the color that they are supposed to be
      */
     public void paint(Color[][] in){
+        hsb.clearPath();
+        k.clearPath();
         for(int i = 0; i < in.length; i++){
             for(int j = 0; j<in[i].length; j++){
                 if(in[i][j] == Color.BLACK){
