@@ -21,27 +21,11 @@ public class Mandelbrot {
     //constructors
     public Mandelbrot(){
     }
-    public Mandelbrot(int maxI, int dimX, int dimY){
-        dimensionX = dimX;
-        dimensionY = dimY;
+    public Mandelbrot(double factor, int maxI){
+        dimensionX = (int)(Math.round(dimensionX*factor));
+        dimensionY = (int)(Math.round(dimensionY*factor));
         setC();
         maxIter = maxI;
-    }
-    public Mandelbrot(int maxI, int factor){
-        dimensionX = dimensionX*factor;
-        dimensionY = dimensionY*factor;
-        setC();
-        maxIter = maxI;
-    }
-    public Mandelbrot(int maxI, int dimX, int dimY, double reStart, double reEnd, double imaginaryStart, double imaginaryEnd){
-        dimensionX = dimX;
-        dimensionY = dimY;
-        setC();
-        maxIter = maxI;
-        realStart = reStart;
-        realEnd = reEnd;
-        imStart = imaginaryStart;
-        imEnd = imaginaryEnd;
     }
     //accessors
     public int getDimensionX() {
@@ -84,6 +68,7 @@ public class Mandelbrot {
     public void resolutionChange(double factor){
         dimensionX = (int)Math.round((double)dimensionX*factor);
         dimensionY = (int)Math.round((double)dimensionY*factor);
+        setC();
     }
     /*
     generates complex number from position on plane
@@ -146,17 +131,6 @@ public class Mandelbrot {
     /*
     Sends result from mandelGen to PaintingPrinter
      */
-    public static void mandelPrint(int maxI, int dimX, int dimY){
-        World z = new World(dimX, dimY);
-        PaintingPrinter y = new PaintingPrinter(z);
-        Mandelbrot x = new Mandelbrot(maxI, dimX, dimY);
-        y.paint(x.mandelGen());
-    }
-    public static void mandelPrint(Mandelbrot in){
-        World z = new World(in.getDimensionX(), in.getDimensionY());
-        PaintingPrinter y = new PaintingPrinter(z);
-        y.paint(in.mandelGen());
-    }
     public static void mandelPrint(Mandelbrot in1, PaintingPrinter in2){
         in2.paint(in1.mandelGen());
     }

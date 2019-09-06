@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.sql.SQLOutput;
 
 /**
  * @author derek zhang
@@ -8,21 +7,32 @@ import java.sql.SQLOutput;
 public class PaintingPrinter{
     Turtle hsb = null;
     Turtle k = null;
+    World w = null;
     //constructors
     public PaintingPrinter(){
-        World x = new World(1280, 720);
-        hsb = new Turtle(x);
-        hsb.setVisible(true);
+        w = new World(600, 400);
+        hsb = new Turtle(w);
+        hsb.setVisible(false);
         hsb.setPenWidth(1);
-        k = new Turtle(x);
-        k.setVisible(true);
+        k = new Turtle(w);
+        k.setVisible(false);
+        k.setPenWidth(1);
+    }
+    public PaintingPrinter(double factor){
+        w = new World((int)(Math.round(600*factor)), (int)(Math.round(400*factor)));
+        hsb = new Turtle(w);
+        hsb.setVisible(false);
+        hsb.setPenWidth(1);
+        k = new Turtle(w);
+        k.setVisible(false);
         k.setPenWidth(1);
     }
     public PaintingPrinter(World x){
-        hsb = new Turtle(x);
+        w = x;
+        hsb = new Turtle(w);
         hsb.setVisible(false);
         hsb.setPenWidth(1);
-        k = new Turtle(x);
+        k = new Turtle(w);
         k.setVisible(false);
         k.setPenWidth(1);
     }
@@ -31,9 +41,20 @@ public class PaintingPrinter{
     public Turtle getHsb() {
         return hsb;
     }
-
     public Turtle getK() {
         return k;
+    }
+    public World getW() {
+        return w;
+    }
+    public void newW(int x, int y) {
+        w = new World(x, y);
+        hsb = new Turtle(w);
+        hsb.setVisible(false);
+        hsb.setPenWidth(1);
+        k = new Turtle(w);
+        k.setVisible(false);
+        k.setPenWidth(1);
     }
     //methods
     /**
