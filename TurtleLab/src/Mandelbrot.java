@@ -11,7 +11,7 @@ usage - used to define the bounds of a mandelbrot set plot, and generate a matri
  */
 public class Mandelbrot {
     //initialize values
-    private int centerX=300, centerY=200, dimensionX=600, dimensionY=400, maxIter = 200;
+    private int centerX=300, centerY=200, dimensionX=600, dimensionY=400, maxIter = 300;
     private double realStart = -2, realEnd = 1, imStart = -1, imEnd = 1;
     //used to update the center of the plot
     private void setC(){
@@ -133,11 +133,5 @@ public class Mandelbrot {
      */
     public static void mandelPrint(Mandelbrot in1, PaintingPrinter in2){
         in2.paint(in1.mandelGen());
-    }
-    public static void mandelPrint(){
-        World z = new World(600, 400);
-        PaintingPrinter y = new PaintingPrinter(z);
-        Mandelbrot x = new Mandelbrot();
-        y.paint(x.mandelGen());
     }
 }

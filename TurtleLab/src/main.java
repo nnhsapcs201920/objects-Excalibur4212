@@ -9,9 +9,9 @@ public class main {
         String in = "";
         String in1 = "";
         boolean defaultOrNot = true;
-        Mandelbrot x = null;
-        PaintingPrinter y = null;
-        MovementUtils z = null;
+        Mandelbrot x = new Mandelbrot();
+        PaintingPrinter y = new PaintingPrinter();
+        MovementUtils z = new MovementUtils(x,y);
         System.out.println("Welcome to Derek's mandelbrot set application. We suggest that you set the screen up to show multiple windows if you wish to make changes to the plot. Press enter to start");
         kbReader.nextLine(); //allow for user to wait to start
         //default or not
@@ -25,12 +25,8 @@ public class main {
             } else System.out.println("Invalid input registered. Please try again.");
         }
         //declare objects
-        if (defaultOrNot){
-            x = new Mandelbrot();
-            y = new PaintingPrinter();
-            x.mandelPrint(x, y);
-            z = new MovementUtils(x, y);
-        } else{
+        if (defaultOrNot) Mandelbrot.mandelPrint(x,y);
+        else{
             //ask for user input on constructors
             while(true){ //factor of resolution increase
                 System.out.println("By what factor would you like to change the default resolution (600x400) by (insert positive double)");
@@ -122,5 +118,6 @@ public class main {
             else System.out.println(in+" is not a recognizable command. Press help for commands or try again.");
         }
         kbReader.close();
+        System.exit(0);
     }
 }
