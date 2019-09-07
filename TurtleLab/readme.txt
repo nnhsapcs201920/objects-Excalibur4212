@@ -1,8 +1,8 @@
 Tips to get a good photo out of my program
-First: use cmd to run the jar on a desktop (this program runs a lot better on faster computers)
-Second: use custom paramaters
-Third set resolution to 1.8x and max iterations to 300
-That will be a good quality full set image. Below is a interesting section of the mandelbrot set.
+first: use java 11.x
+second: use cmd to run the jar on a desktop (this program runs a lot better on faster computers)
+third: use custom paramaters
+fourth: set resolution to 1.8x and max iterations to 300, which will be a good quality full set image. Below is a interesting section of the mandelbrot set.
 
 zoom 
 4.05
